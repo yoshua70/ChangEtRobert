@@ -73,7 +73,7 @@ class Node():
         print("\n")
 
     def config(self) -> None:
-        print("\n[CONFIGURATION] ⚙️ début de la configuration du noeud...")
+        print("\n[CONFIGURATION] début de la configuration du noeud...")
 
         self.setName(input("Entrez un nom pour le noeud : "))
 
@@ -145,15 +145,15 @@ class Node():
                         print(
                             f"[MESSAGE] De: {msg_sender} Contenu: {msg_body}")
                         print("L'uid reçu est identique à l'uid du noeud.")
-                        print("🏆 Le noeud est élu !")
+                        print("Le noeud est élu !")
                         send(
                             f"[ELECTED] [{self.getName()}] {str(self.getUid().int)}", self.getNextNode())
                 else:
                     pass
 
     def start(self) -> None:
-        print("[DEMARRAGE] ⚡ démarrage du noeud...")
-        print("[CONFIGURATION] 🔌 configuration du noeud...")
+        print("[DEMARRAGE] démarrage du noeud...")
+        print("[CONFIGURATION] configuration du noeud...")
         self.showConfig()
 
         choixConfig = input("Accepter la configuration ? Oui(O)/non(n)")
@@ -168,7 +168,7 @@ class Node():
         if choixElection in CHOICE_YES:
             thread = threading.Thread(target=self.listen)
             thread.start()
-            print("[ELECTION] ⚙️ ...")
+            print("[ELECTION] ...")
             sleep(5)
             send(f"[ELECTION] [{self.name}] {str(self.uid.int)}", self.next)
         else:
